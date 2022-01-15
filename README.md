@@ -25,6 +25,30 @@
 
 Собрать оптимизированную production-сборку приложения. Полученные файлы будут в директории `build`.
 
-Для верстки используется библиотека [Ant Design](https://ant.design/components/overview/).
-
 Больше про React читайте в [документации](https://reactjs.org/).
+
+## О репозитории
+
+Данный проект является шаблоном для UI финального задания курса "Java Middle разработчик". В
+качестве библиотеки компонентов используется [Ant Design](https://ant.design/components/overview/).
+Для выполнения HTTP-запросов - [axios](https://github.com/axios/axios).
+
+Набор технологий не является обязательным и может быть изменен на любой другой.
+
+### Запросы к backend
+
+Все запросы выполняются к тому origin, на котором развернут проект (по
+умолчанию [localhost:3000](http://localhost:3000)). Далее с помощью webpack-dev-server запросы
+проксируются на [localhost:8080](http://localhost:8080) (порт по умолчанию для Spring Boot
+приложений). Переопределить данную опцию можно в [package.json](package.json).
+
+### Авторизация
+
+В [base.ts](src/backend/base.ts) настроены два инстанса axios: `axiosNoAuth` и `axiosAuth`. Первый
+отправляет запросы как обычно. Второй же ко всем запросам добавляет токен, который хранится в
+[localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage). Если HTTP-код
+ответа равен 401, то `axiosAuth` также удаляет текущий токен. Пример реализации смотри
+в [user.ts](src/backend/user.ts).
+
+Если токен отсутствуют, все запросы перенаправляются на страницу
+авторизации ([Auth.tsx](src/pages/Auth.tsx)).
