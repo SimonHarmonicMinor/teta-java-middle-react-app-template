@@ -2,7 +2,8 @@
 
 Шаблон проекта на React для курса "Java Middle Разработчик".
 
-Для запуска вам потребуется [NodeJS](https://nodejs.org/en/).
+Для запуска вам потребуется [NodeJS](https://nodejs.org/en/). 
+Проект написан на [Typescript](https://www.typescriptlang.org/).
 
 ## Доступные скрипты
 
