@@ -6,6 +6,7 @@ export const axiosNoAuth = axios.create();
 export const axiosAuth = axios.create();
 
 axiosAuth.interceptors.request.use((config: AxiosRequestConfig) => {
-  config.headers.Authorization = TokenStorage.getToken();
+  // eslint-disable-next-line no-param-reassign
+  config.headers.Authorization = `Bearer ${TokenStorage.getToken()}`;
   return config;
 });
