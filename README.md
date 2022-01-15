@@ -22,4 +22,6 @@
 
 Собрать оптимизированную production-сборку приложения. Полученные файлы будут в директории `build`.
 
+Для верстки используется библиотека [Ant Design](https://ant.design/components/overview/).
+
 Больше про React читайте в [документации](https://reactjs.org/).
